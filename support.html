@@ -3,91 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpeedByGenre - Support</title>
+    <title>Support - SpeedByGenre</title>
     <style>
         :root {
             --primary: #4CAF50;
+            --primary-dark: #388E3C;
             --dark: #1a1a1a;
             --light: #f9f9f9;
             --text: #333;
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: var(--light);
+            background: #fff;
         }
-        header {
-            text-align: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 40px;
-        }
-        h1 { margin: 0; color: var(--dark); font-size: 1.5rem; }
-        
+
         nav {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 15px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            border-bottom: 1px solid #eee;
         }
-        nav a {
-            text-decoration: none;
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
             color: var(--dark);
-            font-weight: 500;
-            padding: 5px 10px;
-            border-radius: 4px;
+            text-decoration: none;
         }
-        nav a:hover { background: #eee; }
-        
-        h2 { color: var(--primary); margin-top: 30px; }
-        
+        .nav-links { display: flex; gap: 24px; }
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+
+        .page-hero {
+            background: var(--light);
+            padding: 50px 40px 40px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        .page-hero h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+        .page-hero p { color: #777; font-size: 1rem; }
+
+        main {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 56px 40px;
+        }
+
+        /* Contact card */
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #f0faf0;
+            border: 1px solid #c8e6c9;
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 52px;
+        }
+        .contact-icon { font-size: 2.2rem; flex-shrink: 0; }
+        .contact-card h2 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 4px;
+            border: none;
+            padding: 0;
+        }
+        .contact-card p { color: #555; font-size: 0.95rem; margin: 0; }
+        .contact-card a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .contact-card a:hover { text-decoration: underline; }
+
+        /* FAQ */
+        h2.section-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 24px;
+            border: none;
+            padding: 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-q {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .faq-a { color: #555; font-size: 0.95rem; line-height: 1.65; }
+
+        code {
+            background: #f4f4f4;
+            border-radius: 4px;
+            padding: 1px 5px;
+            font-size: 0.88em;
+            color: #c0392b;
+        }
+
         footer {
             text-align: center;
-            padding: 40px 0;
-            color: #888;
-            font-size: 0.9rem;
+            padding: 36px 20px;
+            color: #aaa;
+            font-size: 0.85rem;
             border-top: 1px solid #eee;
-            margin-top: 40px;
+        }
+        footer p + p { margin-top: 6px; }
+
+        @media (max-width: 600px) {
+            nav { padding: 14px 20px; }
+            .page-hero { padding: 36px 20px 28px; }
+            main { padding: 36px 20px; }
+            .contact-card { flex-direction: column; gap: 12px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>SpeedByGenre</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="privacy.html">Privacy Policy</a>
+    <nav>
+        <a class="nav-logo" href="index.html">SpeedByGenre</a>
+        <div class="nav-links">
+            <a href="privacy.html">Privacy</a>
             <a href="support.html">Support</a>
-        </nav>
-    </header>
+        </div>
+    </nav>
+
+    <div class="page-hero">
+        <h1>Support</h1>
+        <p>Having trouble? We've got you covered.</p>
+    </div>
 
     <main>
-        <h2>Support</h2>
-        <p>Need help with SpeedByGenre? Found a bug? Have a feature request?</p>
-        
-        <h3>Contact Us</h3>
-        <p>We are here to help. Contact us directly via email:</p>
-        <p>
-            <strong>Email:</strong> <a href="mailto:support@xappnova.com">support@xappnova.com</a>
-        </p>
-        <p>We aim to respond to all inquiries within 48 hours.</p>
 
-        <h3>Frequently Asked Questions</h3>
-        
-        <p><strong>Q: Why isn't the speed changing?</strong></p>
-        <p>A: Make sure the extension is enabled. Also, try refreshing the YouTube page. If the video is an ad, we intentionally do not change the speed.</p>
+        <div class="contact-card">
+            <div class="contact-icon">&#x2709;&#xFE0F;</div>
+            <div>
+                <h2>Contact Us</h2>
+                <p>Email us at <a href="mailto:support@xappnova.com">support@xappnova.com</a> for bugs, feature requests, or anything else. We aim to respond within 48 hours.</p>
+            </div>
+        </div>
 
-        <p><strong>Q: Can I set a custom speed for a specific channel?</strong></p>
-        <p>A: Currently, rules are set by category (e.g., Music, Gaming). Channel-specific rules are planned for a future update.</p>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <p class="faq-q">Why isn't the playback speed changing?</p>
+            <p class="faq-a">A few things to check: make sure the extension is enabled in Chrome's toolbar. Try refreshing the YouTube page after enabling it. If the video is an ad, speed changes are intentionally disabled. Also confirm that you've set a speed rule for that video's category in the extension popup.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">How does the extension detect the video category?</p>
+            <p class="faq-a">SpeedByGenre reads the category label that YouTube displays on the video page (e.g., "Music", "Gaming", "News &amp; Politics"). This is the same category the video uploader assigned when publishing. No external API calls are made — it's all read locally from the page.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">Can I set a custom speed for a specific channel?</p>
+            <p class="faq-a">Currently, rules are set per category (e.g., all Music videos at 1x). Channel-specific or creator-specific rules are planned for a future update. If this is important to you, let us know at <a href="mailto:support@xappnova.com">support@xappnova.com</a> — user feedback shapes our roadmap.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">Will my settings sync across devices?</p>
+            <p class="faq-a">Yes. Your speed preferences are saved in <code>chrome.storage.sync</code>, which Chrome synchronizes across all devices where you're signed into the same Google account. No XAppNova server is involved — the sync is handled entirely by Chrome.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">Does the extension slow down YouTube or affect page performance?</p>
+            <p class="faq-a">No. SpeedByGenre is lightweight and only activates on YouTube pages. It reads a single text element from the page and sets the video playback rate — both are near-instant operations with no measurable impact on page load or performance.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">Does it work with YouTube Premium or YouTube Music?</p>
+            <p class="faq-a">SpeedByGenre works on the standard YouTube website (<code>youtube.com</code>). YouTube Music (<code>music.youtube.com</code>) is a separate app and is not currently supported. YouTube Premium subscribers will find the extension works as normal on the main YouTube site.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">How do I reset my settings to the defaults?</p>
+            <p class="faq-a">Open the extension popup, adjust each category speed back to your preferred value, or uninstall and reinstall the extension to start fresh. All settings are stored locally and removed when the extension is uninstalled.</p>
+        </div>
+
     </main>
 
     <footer>
         <p>&copy; 2026 XAppNova. All rights reserved.</p>
+        <p>YouTube™ is a trademark of Google LLC. Use of this trademark is subject to Google Permissions.</p>
     </footer>
 
 </body>
