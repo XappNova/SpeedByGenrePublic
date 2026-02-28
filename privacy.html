@@ -155,7 +155,7 @@
 
     <div class="page-hero">
         <h1>Privacy Policy</h1>
-        <p>Effective Date: February 18, 2026 &nbsp;&middot;&nbsp; Applies to: SpeedByGenre Chrome Extension</p>
+        <p>Effective Date: February 18, 2026 &nbsp;&middot;&nbsp; Applies to: SpeedByGenre Chrome Extension &amp; Safari App for macOS</p>
     </div>
 
     <main>
@@ -165,7 +165,7 @@
         </div>
 
         <h2>1. Who We Are</h2>
-        <p>SpeedByGenre is a browser extension developed by <strong>XAppNova</strong>. Its sole purpose is to automatically adjust YouTube playback speed based on the video's content category (e.g., Music, Gaming, News). We operate no backend infrastructure and receive no data from users.</p>
+        <p>SpeedByGenre is developed by <strong>XAppNova</strong> and is available as a Chrome extension and as a Safari extension for macOS (distributed via the Mac App Store). Its sole purpose is to automatically adjust YouTube playback speed based on the video's content category (e.g., Music, Gaming, News). We operate no backend infrastructure and receive no data from users.</p>
 
         <h2>2. Data We Do Not Collect</h2>
         <p>We want to be explicit. SpeedByGenre does <strong>not</strong> collect, store, process, or transmit any of the following:</p>
@@ -196,29 +196,38 @@
             <tr>
                 <td>Your speed preferences per category</td>
                 <td>Applies your saved settings on the next YouTube visit</td>
-                <td>Yes — locally in <code>chrome.storage.sync</code>, never transmitted to us</td>
+                <td>Yes — stored locally on your device, never transmitted to us</td>
             </tr>
         </table>
 
-        <p><code>chrome.storage.sync</code> is a sandboxed browser API. Your preferences may sync across your own Chrome profiles via your Google account, under Google's own privacy terms — XAppNova has no access to this data at any point.</p>
+        <p><strong>Chrome:</strong> Preferences are saved in <code>chrome.storage.sync</code>. They may sync across your Chrome profiles via your Google account, under Google's own privacy terms — XAppNova has no access to this data.</p>
+        <p><strong>Safari / macOS:</strong> Preferences are saved in <code>chrome.storage.local</code> (local to Safari) and in an App Group container on your Mac shared between the extension and the menu bar app. No sync to any external server occurs.</p>
 
         <h2>4. Permissions We Request and Why</h2>
         <p>SpeedByGenre requests only the minimum permissions required to function:</p>
         <table>
             <tr>
                 <th>Permission</th>
+                <th>Platform</th>
                 <th>Why It's Needed</th>
             </tr>
             <tr>
                 <td><code>activeTab</code> + host access to <code>youtube.com</code></td>
+                <td>Chrome &amp; Safari</td>
                 <td>To read the video category from the page and control the YouTube video player on the active tab</td>
             </tr>
             <tr>
                 <td><code>storage</code></td>
+                <td>Chrome &amp; Safari</td>
                 <td>To save and retrieve your speed preferences locally between browser sessions</td>
             </tr>
+            <tr>
+                <td>App Sandbox + App Group</td>
+                <td>Safari (macOS) only</td>
+                <td>Allows the menu bar app and Safari extension to share speed preferences on-device. No data leaves your Mac.</td>
+            </tr>
         </table>
-        <p>We do not request access to any other websites, your browsing history, tabs, bookmarks, cookies, or any other browser data beyond what is listed above.</p>
+        <p>We do not request access to any other websites, your browsing history, bookmarks, cookies, or any other browser data beyond what is listed above.</p>
 
         <h2>5. Third-Party Services</h2>
         <p>SpeedByGenre does not integrate with, report to, or load resources from any third-party analytics, advertising, or tracking service. There are no embedded SDKs from Google Analytics, Firebase, Sentry, Mixpanel, or any similar platforms.</p>
@@ -230,7 +239,7 @@
         <p>SpeedByGenre does not knowingly collect any information from anyone, including children under the age of 13. Because no data is collected at all, there is nothing to disclose under COPPA or similar child privacy regulations.</p>
 
         <h2>8. Changes to This Policy</h2>
-        <p>If we ever change our data practices — for example, if a future version adds an optional cloud feature — we will update this policy with a new effective date and notify users via the Chrome Web Store listing. Any change that involves data collection will require your explicit opt-in.</p>
+        <p>If we ever change our data practices — for example, if a future version adds an optional cloud feature — we will update this policy with a new effective date and notify users via the Chrome Web Store listing and Mac App Store release notes. Any change that involves data collection will require your explicit opt-in.</p>
 
         <h2>9. Contact</h2>
         <p>Questions or concerns about this privacy policy? We're happy to answer.</p>

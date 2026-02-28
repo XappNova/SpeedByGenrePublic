@@ -116,6 +116,34 @@
         }
         .faq-a { color: #555; font-size: 0.95rem; line-height: 1.65; }
 
+        /* Platform tabs */
+        .platform-tabs {
+            display: flex;
+            gap: 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 36px;
+        }
+        .platform-tab {
+            flex: 1;
+            padding: 12px 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            background: #f9f9f9;
+            color: #777;
+            border: none;
+            transition: background 0.15s, color 0.15s;
+        }
+        .platform-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+        .platform-section { display: none; }
+        .platform-section.active { display: block; }
+
         code {
             background: #f4f4f4;
             border-radius: 4px;
@@ -168,6 +196,13 @@
 
         <h2 class="section-title">Frequently Asked Questions</h2>
 
+        <div class="platform-tabs">
+            <button class="platform-tab active" onclick="switchPlatform('chrome', this)">Chrome</button>
+            <button class="platform-tab" onclick="switchPlatform('safari', this)">Safari for Mac</button>
+        </div>
+
+        <!-- Chrome FAQs -->
+        <div id="faq-chrome" class="platform-section active">
         <div class="faq-item">
             <p class="faq-q">Why isn't the playback speed changing?</p>
             <p class="faq-a">A few things to check: make sure the extension is enabled in Chrome's toolbar. Try refreshing the YouTube page after enabling it. If the video is an ad, speed changes are intentionally disabled. Also confirm that you've set a speed rule for that video's category in the extension popup.</p>
@@ -202,8 +237,63 @@
             <p class="faq-q">How do I reset my settings to the defaults?</p>
             <p class="faq-a">Open the extension popup, adjust each category speed back to your preferred value, or uninstall and reinstall the extension to start fresh. All settings are stored locally and removed when the extension is uninstalled.</p>
         </div>
+        </div><!-- end #faq-chrome -->
+
+        <!-- Safari FAQs -->
+        <div id="faq-safari" class="platform-section">
+
+        <div class="faq-item">
+            <p class="faq-q">How do I enable SpeedByGenre in Safari?</p>
+            <p class="faq-a">After installing from the Mac App Store, open the SpeedByGenre menu bar app and click <strong>Open Safari Extension Settings</strong>. In Safari → Settings → Extensions, check the box next to SpeedByGenre and allow access to youtube.com when prompted. Then navigate to any YouTube video — the extension activates automatically.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">Where do I change my speed settings?</p>
+            <p class="faq-a">Click the SpeedByGenre icon in your macOS menu bar. The popover shows all 16 YouTube categories with <strong>−</strong> and <strong>+</strong> buttons to adjust the speed for each. Changes are saved instantly and take effect on the next YouTube video you open.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">Why isn't the playback speed changing?</p>
+            <p class="faq-a">Check that the extension is enabled in Safari → Settings → Extensions. Make sure you allowed access to youtube.com when Safari asked for permission. Try refreshing the YouTube page. If a video is an ad, speed changes are intentionally disabled. Also confirm a speed rule is set for that video's category in the menu bar app.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">How does SpeedByGenre detect the video category?</p>
+            <p class="faq-a">It reads the category label YouTube displays on the video page (e.g., "Music", "Gaming"). No external API calls are made — everything is read locally from the page content.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">Will my settings sync across my Macs?</p>
+            <p class="faq-a">Not automatically in the current version. Speed preferences are stored locally on each Mac. Cross-device sync is planned for a future update. If this matters to you, let us know at <a href="mailto:support@xappnova.com">support@xappnova.com</a>.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">Does it work with YouTube Music?</p>
+            <p class="faq-a">The extension runs on <code>youtube.com</code>. YouTube Music (<code>music.youtube.com</code>) is a separate site and is not currently supported.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">How do I reset to the default speeds?</p>
+            <p class="faq-a">Click the menu bar icon and press <strong>Reset Defaults</strong> at the bottom of the popover. This restores all categories to their original speeds (Music 1×, News 1.5×, Education 1.25×, etc.).</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">The app only shows in the menu bar — is that normal?</p>
+            <p class="faq-a">Yes, by design. SpeedByGenre is a menu bar utility with no Dock icon or main window. All controls live in the menu bar popover, keeping your Dock and window list clean.</p>
+        </div>
+
+        </div><!-- end #faq-safari -->
 
     </main>
+
+    <script>
+        function switchPlatform(platform, btn) {
+            document.querySelectorAll('.platform-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.platform-section').forEach(s => s.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('faq-' + platform).classList.add('active');
+        }
+    </script>
 
     <footer>
         <p>&copy; 2026 XAppNova. All rights reserved.</p>
